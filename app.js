@@ -4,14 +4,14 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const userRoute = require('./routers/userRoute')
+const userRouter = require('./routers/userRoute.js')
 
 const app = express()
 app.use(morgan('dev'))
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-app.use('api/users/, userRouter')
+app.use('api/users/', userRouter)
 
 app.get('/', (req, res) => {
     res.json({
